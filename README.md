@@ -8,13 +8,15 @@ Basic configuration to start doing a kata or learn to do tests in the following 
 
 ## PHP
 1. Install [composer](https://getcomposer.org/) `curl -sS https://getcomposer.org/installer | php`
-2. `composer install` (being in the php folder)
-3. `./vendor/bin/phpunit`
+2. Clone the repository `git clone git@github.com:miguelselectra/kata-base.git`
+3. `composer install` (inside the php folder)
+4. `./vendor/bin/phpunit`
 
 ## Javascript
 1. Install [Node](http://nodejs.org/)
-2. `npm install` (being in the javascript folder)
-3. `npm test`
+2. Clone the repository `git clone git@github.com:miguelselectra/kata-base.git`
+3. `npm install` (inside the javascript folder)
+4. `npm test`
 
 # Documentación
 ## Javascript
