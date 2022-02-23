@@ -4,7 +4,7 @@ namespace Kata;
 
 class TheClass
 {
-    public function theMethod(): bool
+    public function theMethod($value): bool
     {
         return true;
     }
