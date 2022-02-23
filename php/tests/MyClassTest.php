@@ -7,13 +7,24 @@ use PHPUnit\Framework\TestCase;
 
 class MyClassTest extends TestCase
 {
-    /** @test */
-    public function give_me_a_good_name_please(): void
+    /**
+     * @test
+     * @dataProvider dataProvider
+     */
+    public function give_me_a_good_name_please($expected, $value): void
     {
         $xxx = new TheClass();
 
-        $result = $xxx->theMethod();
+        $result = $xxx->theMethod($value);
 
-        self::assertEquals(true, $result);
+        self::assertEquals($expected, $result);
+    }
+
+    public function dataProvider(): array
+    {
+        return [
+            'first result' => [true, ''],
+            [true, ''],
+        ];
     }
 }
