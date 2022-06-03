@@ -10,7 +10,7 @@ final class Rover
 
     public function __construct(Planet $planet)
     {
-        $this->position = new Position($planet::MAP_LIMIT);
+        $this->position = new Position($planet->getMapLimit());
         $this->direction = new Direction();
         $this->planet = $planet;
     }
@@ -30,7 +30,7 @@ final class Rover
                 $this->position->move($this->direction->getDirection());
             }
 
-            if (in_array([$this->position->getX(), $this->position->getY()], $this->planet::OBSTACLES)) {
+            if (in_array([$this->position->getX(), $this->position->getY()], $this->planet->getObstacles())) {
                 return 'Crashed:' . $this->position->getX() . ':' . $this->position->getY() . ':' . $this->direction->getDirection();
             }
         }

@@ -4,9 +4,19 @@ namespace Kata;
 
 class Jupiter implements Planet
 {
-    public const MAP_LIMIT = 20;
+    private const MAP_LIMIT = 20;
 
-    const OBSTACLES = [
+    private const OBSTACLES = [
         [2, 1],
     ];
+
+    public function getMapLimit(): int
+    {
+        return self::MAP_LIMIT;
+    }
+
+    public function getObstacles(): array
+    {
+        return self::OBSTACLES;
+    }
 }
