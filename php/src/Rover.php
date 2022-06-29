@@ -2,6 +2,8 @@
 
 namespace Kata;
 
+use Kata\ConnectionEarth\HoustonValidation;
+
 final class Rover
 {
     private Position $position;
@@ -17,6 +19,10 @@ final class Rover
 
     public function execute(string $actionsString): string
     {
+        if (!HoustonValidation::canLand()) {
+            return 'Permission denied, go back to the base';
+        }
+
         $actions = str_split($actionsString);
 
         foreach ($actions as $action){
