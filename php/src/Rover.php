@@ -9,9 +9,11 @@ final class Rover
     private Position $position;
     private Planet $planet;
     private Direction $direction;
+    private HoustonValidation $baseValidator;
 
     public function __construct(Planet $planet)
     {
+        $this->baseValidator = new HoustonValidation();
         $this->position = new Position($planet->getMapLimit());
         $this->direction = new Direction();
         $this->planet = $planet;
@@ -19,7 +21,7 @@ final class Rover
 
     public function execute(string $actionsString): string
     {
-        if (! (new HoustonValidation)->canLand()) {
+        if (! $this->baseValidator->canLand()) {
             return 'Permission denied, go back to the base';
         }
 
