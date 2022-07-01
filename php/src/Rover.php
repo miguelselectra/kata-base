@@ -19,7 +19,7 @@ final class Rover
 
     public function execute(string $actionsString): string
     {
-        if (!HoustonValidation::canLand()) {
+        if (! (new HoustonValidation)->canLand()) {
             return 'Permission denied, go back to the base';
         }
 

@@ -4,9 +4,9 @@ namespace Kata\ConnectionEarth;
 
 class HoustonValidation
 {
-    public static function canLand(): bool
+    public function canLand(): bool
     {
-        sleep(10);
+        sleep(3);
         return true;
     }
 }
