@@ -2,18 +2,18 @@
 
 namespace Kata;
 
-use Kata\ConnectionEarth\HoustonValidation;
+use Kata\ConnectionEarth\BaseValidator;
 
 final class Rover
 {
     private Position $position;
     private Planet $planet;
     private Direction $direction;
-    private HoustonValidation $baseValidator;
+    private BaseValidator $baseValidator;
 
-    public function __construct(Planet $planet)
+    public function __construct(Planet $planet, BaseValidator $baseValidator)
     {
-        $this->baseValidator = new HoustonValidation();
+        $this->baseValidator = $baseValidator;
         $this->position = new Position($planet->getMapLimit());
         $this->direction = new Direction();
         $this->planet = $planet;

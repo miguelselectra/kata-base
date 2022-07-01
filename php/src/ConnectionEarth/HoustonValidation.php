@@ -2,7 +2,7 @@
 
 namespace Kata\ConnectionEarth;
 
-class HoustonValidation
+class HoustonValidation implements BaseValidator
 {
     public function canLand(): bool
     {

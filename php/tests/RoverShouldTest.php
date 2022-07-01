@@ -2,6 +2,7 @@
 
 namespace KataTests;
 
+use Kata\ConnectionEarth\BaseValidator;
 use Kata\Jupiter;
 use Kata\Mars;
 use Kata\Rover;
@@ -15,8 +16,12 @@ class RoverShouldTest extends TestCase
      */
     public function should_rover_works_in_mars($expected, $value): void
     {
-        $roverMars = new Rover(new Mars());
+        $baseValidator = $this->createMock(BaseValidator::class);
+        $roverMars = new Rover(new Mars(), $baseValidator);
 
+        $baseValidator
+            ->method('canLand')
+            ->willReturn(true);
         $result = $roverMars->execute($value);
 
         self::assertEquals($expected, $result);
@@ -49,7 +54,12 @@ class RoverShouldTest extends TestCase
      */
     public function should_rover_works_in_jupiter($expected, $value): void
     {
-        $roverJupiter = new Rover(new Jupiter());
+        $baseValidator = $this->createMock(BaseValidator::class);
+        $roverJupiter = new Rover(new Jupiter(), $baseValidator);
+
+        $baseValidator
+            ->method('canLand')
+            ->willReturn(true);
 
         $result = $roverJupiter->execute($value);
 
